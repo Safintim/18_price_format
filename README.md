@@ -1,7 +1,37 @@
-# Price Formatter
+# Форматирование цен
 
-[TODO. There will be project description]
+## Описание
 
-# Project Goals
+Скрипт, который форматирует цену в более удобный вид.
 
-The code is written for educational purposes. Training course for web-developers - [DEVMAN.org](https://devman.org)
+3245.000000 -> 3 245
+333245.00 -> 333 245
+
+## Требования
+
+*Python3*
+
+## Как запустить
+
+Склонировать репозиторий:
+
+```sh
+git clone https://github.com/Safintim/18_price_format.git
+cd 18_price_format
+```
+Запустить скрипт
+
+```sh
+python format_price.py <price>
+```
+
+## Примеры запуска скрипта
+
+```sh
+python format_price.py 1234
+1 234
+```
+
+## Цели проекта
+
+Код создан в учебных целях. В рамках учебного курса по веб-разработке - [DEVMAN.org](https://devman.org)
