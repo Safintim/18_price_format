@@ -17,6 +17,8 @@ class TestFormatPrice(unittest.TestCase):
         self.assertEqual(format_price(1234), '1 234')
         self.assertEqual(format_price(1234.900), '1 234.90')
 
+        self.assertEqual(format_price('1234,900'), None)
+
 
 if __name__ == '__main__':
     unittest.main()
