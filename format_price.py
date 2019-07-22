@@ -14,7 +14,10 @@ def create_parser():
 
 
 def format_price(price):
-    price = float(price)
+    try:
+        price = float(price)
+    except ValueError:
+        return None
     if int(price) == float(price):
         return '{:,}'.format(int(price)).replace(',', ' ')
     else:
