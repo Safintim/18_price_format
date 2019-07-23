@@ -16,9 +16,9 @@ def create_parser():
 def format_price(price):
     try:
         price = float(price)
-    except ValueError:
+    except (ValueError, TypeError):
         return None
-    if int(price) == float(price):
+    if price.is_integer():
         return '{:,}'.format(int(price)).replace(',', ' ')
     else:
         return '{:,.2f}'.format(price).replace(',', ' ')
