@@ -23,17 +23,30 @@ class TestFormatPrice(unittest.TestCase):
 
     def test_format_price_int(self):
         self.assertEqual(format_price(1234), '1 234')
-        self.assertEqual(format_price(1234.900), '1 234.90')
+        self.assertEqual(format_price(3000), '3 000')
+        self.assertEqual(format_price(10564), '10 564')
+        self.assertEqual(format_price(623401), '623 401')
 
-    def test_format_price_func(self):
-        self.assertEqual(format_price('1234,900'), None)
-        self.assertEqual(format_price('1234|900'), None)
-        self.assertEqual(format_price('1234/900'), None)
+    def test_format_price_float(self):
+        self.assertEqual(format_price(1234.9), '1 234.90')
+        self.assertEqual(format_price(3000.00), '3 000')
+        self.assertEqual(format_price(10564.113), '10 564.11')
+        self.assertEqual(format_price(623401.7867), '623 401.79')
 
     def test_format_price_sep(self):
+        self.assertEqual(format_price('1234,900'), None)
+        self.assertEqual(format_price('1234|900'), None)
+        self.assertEqual(format_price('1234;900'), None)
+        self.assertEqual(format_price('1234/900'), None)
+        self.assertEqual(format_price('1234:900'), None)
+
+    def test_format_price_func(self):
         def func():
             ...
         self.assertEqual(format_price(func), None)
+
+    def test_format_price_none(self):
+        self.assertEqual(format_price(None), None)
 
 
 if __name__ == '__main__':
