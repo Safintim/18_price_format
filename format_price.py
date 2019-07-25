@@ -15,7 +15,7 @@ def create_parser():
 
 def format_price(price):
     try:
-        price = float(str(price))
+        price = round(float(str(price)), 2)
     except (ValueError, TypeError):
         return None
     if price.is_integer():
